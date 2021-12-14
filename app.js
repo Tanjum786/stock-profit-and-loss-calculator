@@ -6,23 +6,27 @@ var currentPrice=document.querySelector("#current-price")
 
 
 function calculateProfitAndLoss(initial,quntity,current){
-    if (initial>current) {
-        var loss=(initial-current)*quntity;
-        var lossPrcentage=(loss/initial)*100;
-        output.innerText=`Hey loss is ${loss} and the parcent is ${lossPrcentage}% 😑`;
-        output.style.color="red"
-    }else if(current>initial){
-        var profit=(current-initial)*quntity;
-        var profitPrcentage=(profit/initial)*100;
-        output.innerText=`Hey profit is ${profit} and the parcent is ${profitPrcentage}% 😇`;
-        output.style.color="blue"
+    if(initial>0 && current>0){
+        if (initial>current) {
+            var loss=(initial-current)*quntity;
+            var lossPrcentage=(loss/initial)*100;
+            output.innerText=`Hey loss is ${loss} and the parcent is ${lossPrcentage}% 😑`;
+            output.style.color="red"
+        }else if(current>initial){
+            var profit=(current-initial)*quntity;
+            var profitPrcentage=(profit/initial)*100;
+            output.innerText=`Hey profit is ${profit} and the parcent is ${profitPrcentage}% 😇`;
+            output.style.color="blue"
 
+        }else{
+            output.innerText="No pain  No Gain and No gain No pain !!";
+            output.style.color="green"
+
+        }
     }else{
-        output.innerText="No pain  No Gain and No gain No pain !!";
+        output.innerText=("You Entered Negative Numbers Enter valid Numbers")
         output.style.color="green"
-
     }
-    
 } 
 
 function submitHandler(){
